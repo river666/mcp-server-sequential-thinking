@@ -193,3 +193,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Source Code
 
 This project is based on the source code from [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers).
+
+## 语言切换
+
+[切换到中文](README.zh.md)
