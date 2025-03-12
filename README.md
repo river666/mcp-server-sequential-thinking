@@ -198,7 +198,11 @@ npm run build
 <summary>Docker Build</summary>
 
 ```bash
-docker build -t mcp/sequentialthinking -f src/sequentialthinking/Dockerfile .
+# Build the Docker image
+docker build -t mcp/sequentialthinking .
+
+# Verify the build
+docker images | grep sequentialthinking
 ```
 </details>
 
