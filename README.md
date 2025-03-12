@@ -188,4 +188,8 @@ If you encounter issues with the npx method, try the following:
 
 ## License
 
-This MCP server is licensed under the MIT License. This means you are free to use, modify, and distribute the software, subject to the terms and conditions of the MIT License. For more details, please see the LICENSE file in the project repository.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Source Code
+
+This project is based on the source code from [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers).
