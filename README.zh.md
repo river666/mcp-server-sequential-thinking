@@ -1,5 +1,7 @@
 # 顺序思维 MCP 服务器
 
+[Switch to English](README.md) | [切换到英文](README.md)
+
 这是一个 MCP 服务器实现，提供一个动态和反思性问题解决的工具，通过结构化思维过程。
 
 ## 特性
