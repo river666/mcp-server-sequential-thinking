@@ -100,6 +100,7 @@
 <details>
 <summary><b>📦 NPX 方法（推荐）</b></summary>
 
+1. 安装包：
 ```bash
 # 全局安装
 npm install -g @zengwenliang0416/mcp-server-sequential-thinking
@@ -108,7 +109,7 @@ npm install -g @zengwenliang0416/mcp-server-sequential-thinking
 npx -y @zengwenliang0416/mcp-server-sequential-thinking
 ```
 
-在 Cursor 设置中配置（JSON）：
+2. 在 Cursor 设置中配置（JSON）：
 ```json
 {
   "mcpServers": {
@@ -127,14 +128,14 @@ npx -y @zengwenliang0416/mcp-server-sequential-thinking
 <details>
 <summary><b>💻 本地构建方法</b></summary>
 
-本地构建：
+1. 本地构建：
 ```bash
 cd /path/to/sequential-thinking
 npm install
 npm run build
 ```
 
-在 Cursor 设置中配置（JSON）：
+2. 在 Cursor 设置中配置（JSON）：
 ```json
 {
   "mcpServers": {
@@ -152,12 +153,13 @@ npm run build
 <details>
 <summary><b>🐳 Docker 方法</b></summary>
 
+1. 构建 Docker 镜像：
 ```bash
 # 构建 Docker 镜像
 docker build -t zengwenliang0416/mcp-server-sequential-thinking .
 ```
 
-在 Cursor 设置中配置（JSON）：
+2. 在 Cursor 设置中配置（JSON）：
 ```json
 {
   "mcpServers": {
@@ -178,14 +180,14 @@ docker build -t zengwenliang0416/mcp-server-sequential-thinking .
 <details>
 <summary><b>🔧 环境变量方法</b></summary>
 
-创建启动脚本：
+1. 创建启动脚本：
 ```bash
 #!/bin/sh
 export CURSOR_MCP_CONFIG=/path/to/your/mcp_config.json
 open -a Cursor
 ```
 
-在 `mcp_config.json` 中添加配置：
+2. 在 `mcp_config.json` 中添加配置：
 ```json
 {
   "mcpServers": {
@@ -199,7 +201,7 @@ open -a Cursor
 }
 ```
 
-使脚本可执行：
+3. 使脚本可执行：
 ```bash
 chmod +x start_cursor_with_mcp.sh
 ```
@@ -227,6 +229,9 @@ npm run build
 git clone https://github.com/Zengwenliang0416/mcp-server-sequential-thinking.git
 cd mcp-server-sequential-thinking
 docker build -t zengwenliang0416/mcp-server-sequential-thinking .
+
+# 验证构建结果
+docker images | grep sequential-thinking
 ```
 </details>
 
@@ -261,16 +266,38 @@ docker build -t zengwenliang0416/mcp-server-sequential-thinking .
    ```bash
    npm login
    ```
+   按照提示通过浏览器登录。
 
-4. **构建并发布**
+4. **检查组织成员身份**
+   对于作用域包，确保您是该作用域的一部分：
    ```bash
-   npm run build
-   npm publish --access public
+   # 检查您是否是组织的成员
+   npm org ls 您的组织名称
+
+   # 对于个人作用域，这会自动使用您的用户名创建
    ```
 
-5. **验证发布**
+5. **构建并发布**
+   ```bash
+   npm run build
+   
+   # 首次发布作用域包
+   npm publish --access public
+   
+   # 后续更新
+   npm publish
+   ```
+
+6. **验证发布**
    ```bash
    npm view @zengwenliang0416/mcp-server-sequential-thinking
+   ```
+
+7. **提交您的更改**
+   ```bash
+   git add .
+   git commit -m "feat(publish): 🚀 发布npm包@zengwenliang0416/mcp-server-sequential-thinking"
+   git push
    ```
 
 ### 版本更新
@@ -286,6 +313,12 @@ npm version minor
 # 主要更新（破坏性变更）
 npm version major
 ```
+
+更新版本后，再次构建和发布：
+```bash
+npm run build
+npm publish
+```
 </details>
 
 ## 🔐 CI/CD 配置
@@ -299,19 +332,50 @@ npm version major
 
 1. **NPM_TOKEN**
    - 在 npm 生成：账户 → 访问令牌 → 选择"Automation"令牌类型
-   - 双因素认证用户注意：必须使用"Automation"令牌
+   - 详细步骤：
+     1. 登录您的 npm 账户：https://www.npmjs.com/login
+     2. 点击右上角的个人头像，然后选择"Access Tokens"
+     3. 点击"Generate New Token"按钮
+     4. **重要**：选择"Automation"类型的令牌（不是"Publish"）以绕过 OTP 要求
+     5. 填写令牌描述（例如："GitHub Actions"）
+     6. 点击"Generate Token"按钮
+     7. **重要**：立即复制生成的令牌！它只会显示一次
 
 2. **DOCKERHUB_USERNAME**
    - 您的 Docker Hub 用户名
+   - 这应该是您用于登录 Docker Hub 的相同用户名
 
 3. **DOCKERHUB_TOKEN**
    - 在 Docker Hub 生成：账户设置 → 安全 → 新访问令牌
+   - 详细步骤：
+     1. 登录您的 Docker Hub 账号
+     2. 点击右上角的用户名，然后选择"Account Settings"
+     3. 在左侧导航栏中选择"Security"
+     4. 点击"New Access Token"
+     5. 填写描述并选择适当的权限（至少需要"Read & Write"权限）
+     6. 点击"Generate"按钮
+     7. 立即复制生成的令牌！它只会显示一次
 
 ### 添加密钥到 GitHub
 
 1. 进入仓库设置 → Secrets and variables → Actions
-2. 逐个添加每个密钥
-3. 在 Actions 标签页手动触发工作流测试
+2. 点击"New repository secret"按钮
+3. 逐个添加每个密钥：
+   - **NPM_TOKEN**：粘贴您的 npm 访问令牌值
+   - **DOCKERHUB_USERNAME**：输入您的 Docker Hub 用户名
+   - **DOCKERHUB_TOKEN**：粘贴您的 Docker Hub 访问令牌
+4. 添加完所有密钥后，您应该在"Actions secrets"列表中看到全部 3 个密钥
+
+### 测试工作流
+
+要测试自动发布工作流：
+
+1. 在您的 GitHub 仓库中，点击"Actions"选项卡
+2. 在左侧找到"Publish Package"工作流
+3. 点击"Run workflow"按钮
+4. 从分支下拉菜单中选择"main"分支
+5. 点击绿色的"Run workflow"按钮
+6. 在 Actions 标签页中监控进度和结果
 
 > **双因素认证用户注意**：如果您在 npm 账户上启用了双因素认证(2FA)，您必须：
 > - 使用"Automation"类型的令牌（推荐）

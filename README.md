@@ -100,6 +100,7 @@ The Sequential Thinking tool is ideal for:
 <details>
 <summary><b>📦 NPX Method (Recommended)</b></summary>
 
+1. Install the package:
 ```bash
 # Install globally
 npm install -g @zengwenliang0416/mcp-server-sequential-thinking
@@ -108,7 +109,7 @@ npm install -g @zengwenliang0416/mcp-server-sequential-thinking
 npx -y @zengwenliang0416/mcp-server-sequential-thinking
 ```
 
-Configure in Cursor settings (JSON):
+2. Configure in Cursor settings (JSON):
 ```json
 {
   "mcpServers": {
@@ -127,14 +128,14 @@ Configure in Cursor settings (JSON):
 <details>
 <summary><b>💻 Local Build Method</b></summary>
 
-Build locally:
+1. Build locally:
 ```bash
 cd /path/to/sequential-thinking
 npm install
 npm run build
 ```
 
-Configure in Cursor settings (JSON):
+2. Configure in Cursor settings (JSON):
 ```json
 {
   "mcpServers": {
@@ -152,12 +153,13 @@ Configure in Cursor settings (JSON):
 <details>
 <summary><b>🐳 Docker Method</b></summary>
 
+1. Build Docker image:
 ```bash
 # Build Docker image
 docker build -t zengwenliang0416/mcp-server-sequential-thinking .
 ```
 
-Configure in Cursor settings (JSON):
+2. Configure in Cursor settings (JSON):
 ```json
 {
   "mcpServers": {
@@ -178,14 +180,14 @@ Configure in Cursor settings (JSON):
 <details>
 <summary><b>🔧 Environment Variables Method</b></summary>
 
-Create a startup script:
+1. Create a startup script:
 ```bash
 #!/bin/sh
 export CURSOR_MCP_CONFIG=/path/to/your/mcp_config.json
 open -a Cursor
 ```
 
-Add to `mcp_config.json`:
+2. Add to `mcp_config.json`:
 ```json
 {
   "mcpServers": {
@@ -199,7 +201,7 @@ Add to `mcp_config.json`:
 }
 ```
 
-Make executable:
+3. Make executable:
 ```bash
 chmod +x start_cursor_with_mcp.sh
 ```
@@ -227,6 +229,9 @@ npm run build
 git clone https://github.com/Zengwenliang0416/mcp-server-sequential-thinking.git
 cd mcp-server-sequential-thinking
 docker build -t zengwenliang0416/mcp-server-sequential-thinking .
+
+# Verify the build
+docker images | grep sequential-thinking
 ```
 </details>
 
@@ -261,16 +266,38 @@ docker build -t zengwenliang0416/mcp-server-sequential-thinking .
    ```bash
    npm login
    ```
+   Follow the prompts to log in through your browser.
 
-4. **Build and publish**
+4. **Check organization membership**
+   For scoped packages, ensure you're part of the scope:
    ```bash
-   npm run build
-   npm publish --access public
+   # Check if you're part of the organization
+   npm org ls your-org-name
+
+   # For personal scopes, this is automatically created with your username
    ```
 
-5. **Verify publication**
+5. **Build and publish**
+   ```bash
+   npm run build
+   
+   # For first-time publishing a scoped package
+   npm publish --access public
+   
+   # For subsequent updates
+   npm publish
+   ```
+
+6. **Verify publication**
    ```bash
    npm view @zengwenliang0416/mcp-server-sequential-thinking
+   ```
+
+7. **Commit your changes**
+   ```bash
+   git add .
+   git commit -m "feat(publish): 🚀 发布npm包@zengwenliang0416/mcp-server-sequential-thinking"
+   git push
    ```
 
 ### Version Updates
@@ -286,6 +313,12 @@ npm version minor
 # For major updates (breaking changes)
 npm version major
 ```
+
+After updating the version, build and publish again:
+```bash
+npm run build
+npm publish
+```
 </details>
 
 ## 🔐 CI/CD Configuration
@@ -299,19 +332,50 @@ Add these secrets to your repository settings:
 
 1. **NPM_TOKEN**
    - Generate at npm: Account → Access Tokens → "Automation" token type
-   - Important for 2FA users: Must use "Automation" token
+   - Step-by-step instructions:
+     1. Log in to your npm account: https://www.npmjs.com/login
+     2. Click on your profile picture, then select "Access Tokens"
+     3. Click "Generate New Token" button
+     4. **Important**: Select "Automation" token type (not "Publish") to bypass OTP requirements
+     5. Enter a token description (e.g., "GitHub Actions")
+     6. Click "Generate Token"
+     7. **Important**: Copy the generated token immediately! It will only be displayed once
 
 2. **DOCKERHUB_USERNAME**
    - Your Docker Hub username
+   - This should be the same username you use to log in to Docker Hub
 
 3. **DOCKERHUB_TOKEN**
    - Generate in Docker Hub: Account Settings → Security → New Access Token
+   - Step-by-step instructions:
+     1. Log in to your Docker Hub account
+     2. Click on your username, then select "Account Settings"
+     3. Select "Security" from the left navigation bar
+     4. Click "New Access Token"
+     5. Enter a description and select appropriate permissions (at least "Read & Write")
+     6. Click "Generate"
+     7. Copy the generated token immediately! It will only be displayed once
 
 ### Adding Secrets to GitHub
 
 1. Go to repository Settings → Secrets and variables → Actions
-2. Add each secret individually
-3. Test the workflow by manually triggering in Actions tab
+2. Click the "New repository secret" button
+3. Add each secret individually:
+   - **NPM_TOKEN**: Paste your npm access token value
+   - **DOCKERHUB_USERNAME**: Enter your Docker Hub username
+   - **DOCKERHUB_TOKEN**: Paste your Docker Hub access token
+4. After adding all secrets, you should see all 3 listed in the "Actions secrets" list
+
+### Testing the Workflow
+
+To test your automated publishing workflow:
+
+1. In your GitHub repository, click the "Actions" tab
+2. Find the "Publish Package" workflow in the left sidebar
+3. Click the "Run workflow" button
+4. Select the "main" branch from the branch dropdown
+5. Click the green "Run workflow" button
+6. Monitor the progress and results in the Actions tab
 
 > **Note for 2FA Users**: If you have Two-Factor Authentication enabled on your npm account, you must either:
 > - Use an "Automation" type token (recommended)
