@@ -352,4 +352,4 @@ git push
 
 ## 🔗 源码
 
-本项目基于 [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) 的源代码。 
+本项目基于 [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) 的源代码，并在 [Zengwenliang0416/mcp-server-sequential-thinking](https://github.com/Zengwenliang0416/mcp-server-sequential-thinking) 维护。 

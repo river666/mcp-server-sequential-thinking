@@ -4,8 +4,8 @@
   "description": "MCP server for sequential thinking and problem solving",
   "license": "MIT",
   "author": "Dreamboat CMCP Team",
-  "homepage": "https://github.com/dreamboatcmcp/sequential-thinking",
-  "bugs": "https://github.com/dreamboatcmcp/sequential-thinking/issues",
+  "homepage": "https://github.com/Zengwenliang0416/mcp-server-sequential-thinking",
+  "bugs": "https://github.com/Zengwenliang0416/mcp-server-sequential-thinking/issues",
   "type": "module",
   "bin": {
     "sequential-thinking": "dist/index.js"

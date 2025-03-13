@@ -42,9 +42,9 @@ if [[ $PUBLISH == "y" || $PUBLISH == "Y" ]]; then
     read -p "Do you want to build and push Docker image? (y/n) " DOCKER
     if [[ $DOCKER == "y" || $DOCKER == "Y" ]]; then
         # 构建并推送 Docker 镜像
-        docker build -t "dreamboatcmcp/sequential-thinking:$NEW_VERSION" -t "dreamboatcmcp/sequential-thinking:latest" .
-        docker push "dreamboatcmcp/sequential-thinking:$NEW_VERSION"
-        docker push "dreamboatcmcp/sequential-thinking:latest"
+        docker build -t "zengwenliang0416/sequential-thinking:$NEW_VERSION" -t "zengwenliang0416/sequential-thinking:latest" .
+        docker push "zengwenliang0416/sequential-thinking:$NEW_VERSION"
+        docker push "zengwenliang0416/sequential-thinking:latest"
         echo "Docker image pushed"
     fi
 else

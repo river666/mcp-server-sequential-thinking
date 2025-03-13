@@ -352,4 +352,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 Source Code
 
-This project is based on the source code from [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers).
+This project is based on the source code from [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) and is maintained at [Zengwenliang0416/mcp-server-sequential-thinking](https://github.com/Zengwenliang0416/mcp-server-sequential-thinking).
