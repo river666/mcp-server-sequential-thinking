@@ -5,8 +5,8 @@ WORKDIR /app
 # Copy package files for installation
 COPY package*.json ./
 
-# Install dependencies
-RUN --mount=type=cache,target=/root/.npm npm install
+# Install dependencies without running scripts
+RUN --mount=type=cache,target=/root/.npm npm install --ignore-scripts
 
 # Copy source code
 COPY tsconfig.json ./
