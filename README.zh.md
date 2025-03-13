@@ -350,10 +350,15 @@ git push
 1. 登录您的 npm 账户：https://www.npmjs.com/login
 2. 点击右上角的个人头像，然后选择"Access Tokens"
 3. 点击"Generate New Token"按钮
-4. 选择"Publish"类型的令牌
+4. **重要**：对于 GitHub Actions，请选择"Automation"类型的令牌（不是"Publish"）以绕过 OTP 要求
 5. 填写令牌描述（例如："GitHub Actions"）
 6. 点击"Generate Token"按钮
 7. **重要**：立即复制生成的令牌！它只会显示一次
+
+> **双因素认证用户注意**：如果您在 npm 账户上启用了双因素认证(2FA)，您必须：
+> - 使用"Automation"类型的令牌（推荐）
+> - 将双因素认证设置更改为"仅登录时验证"（不推荐）
+> - 手动发布包（无法自动化）
 
 #### 2. 获取 Docker Hub 凭据
 

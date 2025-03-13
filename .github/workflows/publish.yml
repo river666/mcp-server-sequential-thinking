@@ -24,6 +24,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Configure npm for CI
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
+          npm config set access public
+          npm config set registry https://registry.npmjs.org/
+
       - name: Publish to npm
         run: npm publish --access public
         env:

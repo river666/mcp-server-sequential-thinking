@@ -350,10 +350,15 @@ To enable automated publishing to npm and Docker Hub, you need to add the follow
 1. Log in to your npm account: https://www.npmjs.com/login
 2. Click on your profile picture in the upper right corner, then select "Access Tokens"
 3. Click the "Generate New Token" button
-4. Select "Publish" token type
+4. **Important**: For GitHub Actions, select "Automation" token type (not "Publish") to bypass OTP requirements
 5. Enter a token description (e.g., "GitHub Actions")
 6. Click "Generate Token"
 7. **Important**: Copy the generated token immediately! It will only be displayed once
+
+> **Note for 2FA Users**: If you have Two-Factor Authentication enabled on your npm account, you must either:
+> - Use an "Automation" type token (recommended)
+> - Change 2FA settings to "Authorization only" (not recommended)
+> - Manually publish packages (not automated)
 
 #### 2. Get Docker Hub Credentials
 
