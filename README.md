@@ -337,6 +337,78 @@ To update the package:
    npm publish
    ```
 
+## 🔐 CI/CD Secrets Configuration
+
+This section explains how to configure the necessary secrets for automated publishing via GitHub Actions.
+
+### GitHub Actions Secrets
+
+To enable automated publishing to npm and Docker Hub, you need to add the following secrets to your GitHub repository:
+
+#### 1. Create NPM Access Token (NPM_TOKEN)
+
+1. Log in to your npm account: https://www.npmjs.com/login
+2. Click on your profile picture in the upper right corner, then select "Access Tokens"
+3. Click the "Generate New Token" button
+4. Select "Publish" token type
+5. Enter a token description (e.g., "GitHub Actions")
+6. Click "Generate Token"
+7. **Important**: Copy the generated token immediately! It will only be displayed once
+
+#### 2. Get Docker Hub Credentials
+
+If you don't have a Docker Hub account yet, register first: https://hub.docker.com/signup
+
+1. Log in to your Docker Hub account
+2. Click on your username in the upper right corner, then select "Account Settings"
+3. Select "Security" from the left navigation bar
+4. Click "New Access Token"
+5. Enter a description and select appropriate permissions (at least "Read & Write" permission is needed)
+6. Click "Generate"
+7. **Important**: Copy the generated token immediately! It will only be displayed once
+
+#### 3. Add Secrets to GitHub Repository
+
+1. Go to your GitHub repository: https://github.com/Zengwenliang0416/mcp-server-sequential-thinking
+2. Click the "Settings" tab
+3. In the left sidebar, click "Secrets and variables" then select "Actions"
+4. Click the "New repository secret" button
+5. Add the following secrets (one at a time):
+
+   a. **NPM_TOKEN**:
+   - Name: `NPM_TOKEN`
+   - Value: [paste your npm access token copied earlier]
+   - Click "Add secret"
+
+   b. **DOCKERHUB_USERNAME**:
+   - Name: `DOCKERHUB_USERNAME`
+   - Value: [your Docker Hub username]
+   - Click "Add secret"
+
+   c. **DOCKERHUB_TOKEN**:
+   - Name: `DOCKERHUB_TOKEN`
+   - Value: [paste your Docker Hub access token copied earlier]
+   - Click "Add secret"
+
+#### 4. Verify Added Secrets
+
+After adding all secrets, you should see 3 secrets in the "Actions secrets" list:
+- NPM_TOKEN
+- DOCKERHUB_USERNAME
+- DOCKERHUB_TOKEN
+
+#### 5. Manual Workflow Trigger (Optional)
+
+To test your automated publishing workflow:
+
+1. In your GitHub repository, click the "Actions" tab
+2. Find the "Publish Package" workflow in the left sidebar
+3. Click the "Run workflow" button
+4. Select the "main" branch from the branch dropdown
+5. Click the green "Run workflow" button
+
+This will trigger your publishing workflow. You can monitor its progress and results in the Actions tab.
+
 ## ❗ Troubleshooting
 
 If you encounter issues with the npx method, try the following:

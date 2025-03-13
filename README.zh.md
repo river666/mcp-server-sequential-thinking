@@ -337,6 +337,78 @@ git push
    npm publish
    ```
 
+## 🔐 CI/CD 密钥配置
+
+本节说明如何配置通过 GitHub Actions 自动发布所需的密钥。
+
+### GitHub Actions 密钥
+
+要启用自动发布到 npm 和 Docker Hub，您需要在 GitHub 仓库中添加以下密钥：
+
+#### 1. 创建 NPM 访问令牌 (NPM_TOKEN)
+
+1. 登录您的 npm 账户：https://www.npmjs.com/login
+2. 点击右上角的个人头像，然后选择"Access Tokens"
+3. 点击"Generate New Token"按钮
+4. 选择"Publish"类型的令牌
+5. 填写令牌描述（例如："GitHub Actions"）
+6. 点击"Generate Token"按钮
+7. **重要**：立即复制生成的令牌！它只会显示一次
+
+#### 2. 获取 Docker Hub 凭据
+
+如果您还没有 Docker Hub 账号，请先注册：https://hub.docker.com/signup
+
+1. 登录您的 Docker Hub 账号
+2. 点击右上角的用户名，然后选择"Account Settings"
+3. 在左侧导航栏中选择"Security"
+4. 点击"New Access Token"
+5. 填写描述并选择适当的权限（至少需要"Read & Write"权限）
+6. 点击"Generate"按钮
+7. **重要**：立即复制生成的令牌！它只会显示一次
+
+#### 3. 在 GitHub 仓库中添加密钥
+
+1. 前往您的 GitHub 仓库：https://github.com/Zengwenliang0416/mcp-server-sequential-thinking
+2. 点击"Settings"选项卡
+3. 在左侧导航栏中，点击"Secrets and variables"然后选择"Actions"
+4. 点击"New repository secret"按钮
+5. 添加以下密钥（一次添加一个）：
+
+   a. **NPM_TOKEN**：
+   - 名称：`NPM_TOKEN`
+   - 值：[粘贴您之前复制的 npm 访问令牌]
+   - 点击"Add secret"
+
+   b. **DOCKERHUB_USERNAME**：
+   - 名称：`DOCKERHUB_USERNAME`
+   - 值：[您的 Docker Hub 用户名]
+   - 点击"Add secret"
+
+   c. **DOCKERHUB_TOKEN**：
+   - 名称：`DOCKERHUB_TOKEN`
+   - 值：[粘贴您之前复制的 Docker Hub 访问令牌]
+   - 点击"Add secret"
+
+#### 4. 验证密钥添加
+
+添加完所有密钥后，您应该在"Actions secrets"列表中看到 3 个密钥：
+- NPM_TOKEN
+- DOCKERHUB_USERNAME
+- DOCKERHUB_TOKEN
+
+#### 5. 手动触发工作流测试（可选）
+
+要测试自动发布工作流：
+
+1. 在您的 GitHub 仓库中，点击"Actions"选项卡
+2. 在左侧找到"Publish Package"工作流
+3. 点击"Run workflow"按钮
+4. 从分支下拉菜单中选择"main"分支
+5. 点击绿色的"Run workflow"按钮
+
+这将触发您的发布工作流程。您可以在 Actions 标签页中监控其进度和结果。
+
 ## ❗ 故障排除
 
 如果你在使用 npx 方法时遇到问题，请尝试以下方法：
