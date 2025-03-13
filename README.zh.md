@@ -67,7 +67,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "@zengwenliang416/mcp-server-sequential-thinking"
+        "@zengwenliang/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -103,10 +103,10 @@
 1. 安装包：
 ```bash
 # 全局安装
-npm install -g @zengwenliang416/mcp-server-sequential-thinking
+npm install -g @zengwenliang/mcp-server-sequential-thinking
 
 # 或直接使用 NPX
-npx -y @zengwenliang416/mcp-server-sequential-thinking
+npx -y @zengwenliang/mcp-server-sequential-thinking
 ```
 
 2. 在 Cursor 设置中配置（JSON）：
@@ -117,7 +117,7 @@ npx -y @zengwenliang416/mcp-server-sequential-thinking
       "command": "npx",
       "args": [
         "-y",
-        "@zengwenliang416/mcp-server-sequential-thinking"
+        "@zengwenliang/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -243,7 +243,7 @@ docker images | grep sequential-thinking
 ### 前提条件
 
 - 已安装 Node.js 和 npm
-- 拥有可访问 @zengwenliang416 作用域的 npm 账号
+- 拥有可访问 @zengwenliang 作用域的 npm 账号
 - 本地已构建的包
 
 ### 发布步骤
@@ -251,7 +251,7 @@ docker images | grep sequential-thinking
 1. **更新 package.json 中的版本**
    ```json
    {
-     "name": "@zengwenliang416/mcp-server-sequential-thinking",
+     "name": "@zengwenliang/mcp-server-sequential-thinking",
      "version": "0.6.2",
      "description": "MCP server for sequential thinking and problem solving"
    }
@@ -290,13 +290,13 @@ docker images | grep sequential-thinking
 
 6. **验证发布**
    ```bash
-   npm view @zengwenliang416/mcp-server-sequential-thinking
+   npm view @zengwenliang/mcp-server-sequential-thinking
    ```
 
 7. **提交您的更改**
    ```bash
    git add .
-   git commit -m "feat(publish): 🚀 发布npm包@zengwenliang416/mcp-server-sequential-thinking"
+   git commit -m "feat(publish): 🚀 发布npm包@zengwenliang/mcp-server-sequential-thinking"
    git push
    ```
 

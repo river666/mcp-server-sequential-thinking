@@ -67,7 +67,7 @@ The Sequential Thinking tool is ideal for:
       "command": "npx",
       "args": [
         "-y",
-        "@zengwenliang416/mcp-server-sequential-thinking"
+        "@zengwenliang/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -103,10 +103,10 @@ The Sequential Thinking tool is ideal for:
 1. Install the package:
 ```bash
 # Install globally
-npm install -g @zengwenliang416/mcp-server-sequential-thinking
+npm install -g @zengwenliang/mcp-server-sequential-thinking
 
 # Or use NPX directly
-npx -y @zengwenliang416/mcp-server-sequential-thinking
+npx -y @zengwenliang/mcp-server-sequential-thinking
 ```
 
 2. Configure in Cursor settings (JSON):
@@ -117,7 +117,7 @@ npx -y @zengwenliang416/mcp-server-sequential-thinking
       "command": "npx",
       "args": [
         "-y",
-        "@zengwenliang416/mcp-server-sequential-thinking"
+        "@zengwenliang/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -243,7 +243,7 @@ docker images | grep sequential-thinking
 ### Prerequisites
 
 - Node.js and npm installed
-- npm account with access to the @zengwenliang416 scope
+- npm account with access to the @zengwenliang scope
 - Package built locally
 
 ### Publishing Steps
@@ -251,7 +251,7 @@ docker images | grep sequential-thinking
 1. **Update version in package.json**
    ```json
    {
-     "name": "@zengwenliang416/mcp-server-sequential-thinking",
+     "name": "@zengwenliang/mcp-server-sequential-thinking",
      "version": "0.6.2",
      "description": "MCP server for sequential thinking and problem solving"
    }
@@ -290,13 +290,13 @@ docker images | grep sequential-thinking
 
 6. **Verify publication**
    ```bash
-   npm view @zengwenliang416/mcp-server-sequential-thinking
+   npm view @zengwenliang/mcp-server-sequential-thinking
    ```
 
 7. **Commit your changes**
    ```bash
    git add .
-   git commit -m "feat(publish): 🚀 发布npm包@zengwenliang416/mcp-server-sequential-thinking"
+   git commit -m "feat(publish): 🚀 发布npm包@zengwenliang/mcp-server-sequential-thinking"
    git push
    ```
 
