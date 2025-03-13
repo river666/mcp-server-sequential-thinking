@@ -17,12 +17,14 @@ jobs:
         with:
           node-version: '22'
           registry-url: 'https://registry.npmjs.org/'
+          scope: '@zengwenliang'
+          always-auth: true
 
       - name: Check npm user
         run: npm whoami || echo "Not logged in"
         continue-on-error: true
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install dependencies
         run: npm install
@@ -30,13 +32,22 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Configure npm for CI
+      - name: Configure NPM for CI
         run: |
-          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
+          # 将身份验证令牌写入GitHub Actions指定的配置文件位置
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > "${NPM_CONFIG_USERCONFIG:-$HOME/.npmrc}"
+          echo "registry=https://registry.npmjs.org/" >> "${NPM_CONFIG_USERCONFIG:-$HOME/.npmrc}"
+          # 也创建当前目录的.npmrc以防万一
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+          echo "registry=https://registry.npmjs.org/" >> .npmrc
+          # 设置npm配置
           npm config set access public
-          npm config set registry https://registry.npmjs.org/
-          cat .npmrc | grep -v _authToken # Show .npmrc without exposing token
+          npm config set scope @zengwenliang
+          # 显示配置（不显示token）
+          cat .npmrc | grep -v _authToken
           npm config list
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Show package info
         run: cat package.json | grep name
@@ -44,7 +55,7 @@ jobs:
       - name: Publish to npm
         run: npm publish --access public
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   docker:
     runs-on: ubuntu-latest
