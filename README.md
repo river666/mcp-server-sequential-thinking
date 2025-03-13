@@ -67,7 +67,7 @@ The Sequential Thinking tool is ideal for:
       "command": "npx",
       "args": [
         "-y",
-        "@zengwenliang0416/mcp-server-sequential-thinking"
+        "@zengwenliang416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -87,7 +87,7 @@ The Sequential Thinking tool is ideal for:
         "run",
         "--rm",
         "-i",
-        "zengwenliang0416/mcp-server-sequential-thinking"
+        "zengwenliang416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -103,10 +103,10 @@ The Sequential Thinking tool is ideal for:
 1. Install the package:
 ```bash
 # Install globally
-npm install -g @zengwenliang0416/mcp-server-sequential-thinking
+npm install -g @zengwenliang416/mcp-server-sequential-thinking
 
 # Or use NPX directly
-npx -y @zengwenliang0416/mcp-server-sequential-thinking
+npx -y @zengwenliang416/mcp-server-sequential-thinking
 ```
 
 2. Configure in Cursor settings (JSON):
@@ -117,7 +117,7 @@ npx -y @zengwenliang0416/mcp-server-sequential-thinking
       "command": "npx",
       "args": [
         "-y",
-        "@zengwenliang0416/mcp-server-sequential-thinking"
+        "@zengwenliang416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -156,7 +156,7 @@ npm run build
 1. Build Docker image:
 ```bash
 # Build Docker image
-docker build -t zengwenliang0416/mcp-server-sequential-thinking .
+docker build -t zengwenliang416/mcp-server-sequential-thinking .
 ```
 
 2. Configure in Cursor settings (JSON):
@@ -169,7 +169,7 @@ docker build -t zengwenliang0416/mcp-server-sequential-thinking .
         "run",
         "--rm",
         "-i",
-        "zengwenliang0416/mcp-server-sequential-thinking"
+        "zengwenliang416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -215,7 +215,7 @@ chmod +x start_cursor_with_mcp.sh
 <summary><b>Local Build</b></summary>
 
 ```bash
-git clone https://github.com/Zengwenliang0416/mcp-server-sequential-thinking.git
+git clone https://github.com/zengwenliang416/mcp-server-sequential-thinking.git
 cd mcp-server-sequential-thinking
 npm install
 npm run build
@@ -226,9 +226,9 @@ npm run build
 <summary><b>Docker Build</b></summary>
 
 ```bash
-git clone https://github.com/Zengwenliang0416/mcp-server-sequential-thinking.git
+git clone https://github.com/zengwenliang416/mcp-server-sequential-thinking.git
 cd mcp-server-sequential-thinking
-docker build -t zengwenliang0416/mcp-server-sequential-thinking .
+docker build -t zengwenliang416/mcp-server-sequential-thinking .
 
 # Verify the build
 docker images | grep sequential-thinking
@@ -243,7 +243,7 @@ docker images | grep sequential-thinking
 ### Prerequisites
 
 - Node.js and npm installed
-- npm account with access to the @zengwenliang0416 scope
+- npm account with access to the @zengwenliang416 scope
 - Package built locally
 
 ### Publishing Steps
@@ -251,7 +251,7 @@ docker images | grep sequential-thinking
 1. **Update version in package.json**
    ```json
    {
-     "name": "@zengwenliang0416/mcp-server-sequential-thinking",
+     "name": "@zengwenliang416/mcp-server-sequential-thinking",
      "version": "0.6.2",
      "description": "MCP server for sequential thinking and problem solving"
    }
@@ -290,13 +290,13 @@ docker images | grep sequential-thinking
 
 6. **Verify publication**
    ```bash
-   npm view @zengwenliang0416/mcp-server-sequential-thinking
+   npm view @zengwenliang416/mcp-server-sequential-thinking
    ```
 
 7. **Commit your changes**
    ```bash
    git add .
-   git commit -m "feat(publish): 🚀 发布npm包@zengwenliang0416/mcp-server-sequential-thinking"
+   git commit -m "feat(publish): 🚀 发布npm包@zengwenliang416/mcp-server-sequential-thinking"
    git push
    ```
 
@@ -398,4 +398,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🔗 Source Code
 
-Based on [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) and maintained at [Zengwenliang0416/mcp-server-sequential-thinking](https://github.com/Zengwenliang0416/mcp-server-sequential-thinking).
+Based on [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) and maintained at [zengwenliang416/mcp-server-sequential-thinking](https://github.com/zengwenliang416/mcp-server-sequential-thinking).

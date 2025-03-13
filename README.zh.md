@@ -67,7 +67,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "@zengwenliang0416/mcp-server-sequential-thinking"
+        "@zengwenliang416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -87,7 +87,7 @@
         "run",
         "--rm",
         "-i",
-        "zengwenliang0416/mcp-server-sequential-thinking"
+        "zengwenliang416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -103,10 +103,10 @@
 1. 安装包：
 ```bash
 # 全局安装
-npm install -g @zengwenliang0416/mcp-server-sequential-thinking
+npm install -g @zengwenliang416/mcp-server-sequential-thinking
 
 # 或直接使用 NPX
-npx -y @zengwenliang0416/mcp-server-sequential-thinking
+npx -y @zengwenliang416/mcp-server-sequential-thinking
 ```
 
 2. 在 Cursor 设置中配置（JSON）：
@@ -117,7 +117,7 @@ npx -y @zengwenliang0416/mcp-server-sequential-thinking
       "command": "npx",
       "args": [
         "-y",
-        "@zengwenliang0416/mcp-server-sequential-thinking"
+        "@zengwenliang416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -156,7 +156,7 @@ npm run build
 1. 构建 Docker 镜像：
 ```bash
 # 构建 Docker 镜像
-docker build -t zengwenliang0416/mcp-server-sequential-thinking .
+docker build -t zengwenliang416/mcp-server-sequential-thinking .
 ```
 
 2. 在 Cursor 设置中配置（JSON）：
@@ -169,7 +169,7 @@ docker build -t zengwenliang0416/mcp-server-sequential-thinking .
         "run",
         "--rm",
         "-i",
-        "zengwenliang0416/mcp-server-sequential-thinking"
+        "zengwenliang416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -215,7 +215,7 @@ chmod +x start_cursor_with_mcp.sh
 <summary><b>本地构建</b></summary>
 
 ```bash
-git clone https://github.com/Zengwenliang0416/mcp-server-sequential-thinking.git
+git clone https://github.com/zengwenliang416/mcp-server-sequential-thinking.git
 cd mcp-server-sequential-thinking
 npm install
 npm run build
@@ -226,9 +226,9 @@ npm run build
 <summary><b>Docker 构建</b></summary>
 
 ```bash
-git clone https://github.com/Zengwenliang0416/mcp-server-sequential-thinking.git
+git clone https://github.com/zengwenliang416/mcp-server-sequential-thinking.git
 cd mcp-server-sequential-thinking
-docker build -t zengwenliang0416/mcp-server-sequential-thinking .
+docker build -t zengwenliang416/mcp-server-sequential-thinking .
 
 # 验证构建结果
 docker images | grep sequential-thinking
@@ -243,7 +243,7 @@ docker images | grep sequential-thinking
 ### 前提条件
 
 - 已安装 Node.js 和 npm
-- 拥有可访问 @zengwenliang0416 作用域的 npm 账号
+- 拥有可访问 @zengwenliang416 作用域的 npm 账号
 - 本地已构建的包
 
 ### 发布步骤
@@ -251,7 +251,7 @@ docker images | grep sequential-thinking
 1. **更新 package.json 中的版本**
    ```json
    {
-     "name": "@zengwenliang0416/mcp-server-sequential-thinking",
+     "name": "@zengwenliang416/mcp-server-sequential-thinking",
      "version": "0.6.2",
      "description": "MCP server for sequential thinking and problem solving"
    }
@@ -290,13 +290,13 @@ docker images | grep sequential-thinking
 
 6. **验证发布**
    ```bash
-   npm view @zengwenliang0416/mcp-server-sequential-thinking
+   npm view @zengwenliang416/mcp-server-sequential-thinking
    ```
 
 7. **提交您的更改**
    ```bash
    git add .
-   git commit -m "feat(publish): 🚀 发布npm包@zengwenliang0416/mcp-server-sequential-thinking"
+   git commit -m "feat(publish): 🚀 发布npm包@zengwenliang416/mcp-server-sequential-thinking"
    git push
    ```
 
@@ -398,4 +398,4 @@ npm publish
 
 ## 🔗 源码
 
-基于 [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) 的源代码，并在 [Zengwenliang0416/mcp-server-sequential-thinking](https://github.com/Zengwenliang0416/mcp-server-sequential-thinking) 维护。 
+基于 [modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) 的源代码，并在 [zengwenliang416/mcp-server-sequential-thinking](https://github.com/zengwenliang416/mcp-server-sequential-thinking) 维护。 

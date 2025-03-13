@@ -55,7 +55,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: zengwenliang0416/mcp-server-sequential-thinking
+          images: zengwenliang416/mcp-server-sequential-thinking
           tags: |
             type=semver,pattern={{version}}
             type=semver,pattern={{major}}.{{minor}}

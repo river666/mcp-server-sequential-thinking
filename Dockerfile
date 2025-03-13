@@ -36,6 +36,6 @@ RUN chmod +x ./dist/index.js
 LABEL org.opencontainers.image.title="Sequential Thinking MCP Server"
 LABEL org.opencontainers.image.description="MCP server for sequential thinking and problem solving"
 LABEL org.opencontainers.image.authors="Zeng Wenliang"
-LABEL org.opencontainers.image.source="https://github.com/Zengwenliang0416/mcp-server-sequential-thinking"
+LABEL org.opencontainers.image.source="https://github.com/zengwenliang416/mcp-server-sequential-thinking"
 
 ENTRYPOINT ["node", "dist/index.js"]
