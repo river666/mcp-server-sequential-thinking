@@ -252,7 +252,7 @@ docker images | grep sequential-thinking
    ```json
    {
      "name": "@zengwenliang/mcp-server-sequential-thinking",
-     "version": "0.6.3",
+     "version": "0.6.4",
      "description": "MCP server for sequential thinking and problem solving"
    }
    ```
