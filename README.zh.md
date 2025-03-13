@@ -69,7 +69,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "@dreamboatcmcp/sequential-thinking"
+        "@zengwenliang0416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -89,7 +89,7 @@
         "run",
         "--rm",
         "-i",
-        "dreamboatcmcp/sequential-thinking"
+        "zengwenliang0416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -105,10 +105,10 @@
 1. 安装包：
 ```bash
 # 全局安装
-npm install -g @dreamboatcmcp/sequential-thinking
+npm install -g @zengwenliang0416/mcp-server-sequential-thinking
 
 # 或直接使用 NPX
-npx -y @dreamboatcmcp/sequential-thinking
+npx -y @zengwenliang0416/mcp-server-sequential-thinking
 ```
 
 2. 在 Cursor 设置中配置（JSON）：
@@ -119,7 +119,7 @@ npx -y @dreamboatcmcp/sequential-thinking
       "command": "npx",
       "args": [
         "-y",
-        "@dreamboatcmcp/sequential-thinking"
+        "@zengwenliang0416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -157,7 +157,7 @@ npm run build
 
 1. 构建 Docker 镜像：
 ```bash
-docker build -t dreamboatcmcp/sequential-thinking .
+docker build -t zengwenliang0416/mcp-server-sequential-thinking .
 ```
 
 2. 在 Cursor 设置中配置（JSON）：
@@ -170,7 +170,7 @@ docker build -t dreamboatcmcp/sequential-thinking .
         "run",
         "--rm",
         "-i",
-        "dreamboatcmcp/sequential-thinking"
+        "zengwenliang0416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -227,7 +227,7 @@ npm run build
 
 ```bash
 # 构建 Docker 镜像
-docker build -t dreamboatcmcp/sequential-thinking .
+docker build -t zengwenliang0416/mcp-server-sequential-thinking .
 
 # 验证构建结果
 docker images | grep sequential-thinking
@@ -242,7 +242,7 @@ docker images | grep sequential-thinking
 
 1. **Node.js 和 npm**：确保已安装 Node.js 和 npm
 2. **npm 账号**：您需要一个 npm 账号才能发布包
-3. **组织**：对于作用域包（例如 `@dreamboatcmcp/sequential-thinking`），您需要是该组织的成员
+3. **组织**：对于作用域包（例如 `@zengwenliang0416/mcp-server-sequential-thinking`），您需要是该组织的成员
 
 ### 步骤 1：更新包信息
 
@@ -250,7 +250,7 @@ docker images | grep sequential-thinking
 
 ```json
 {
-  "name": "@dreamboatcmcp/sequential-thinking",
+  "name": "@zengwenliang0416/mcp-server-sequential-thinking",
   "version": "0.6.2",
   "description": "MCP server for sequential thinking and problem solving",
   // 其他字段...
@@ -304,14 +304,14 @@ npm publish
 ### 步骤 7：验证发布
 
 ```bash
-npm view @dreamboatcmcp/sequential-thinking
+npm view @zengwenliang0416/mcp-server-sequential-thinking
 ```
 
 ### 步骤 8：提交您的更改
 
 ```bash
 git add .
-git commit -m "feat(publish): 🚀 发布npm包@dreamboatcmcp/sequential-thinking"
+git commit -m "feat(publish): 🚀 发布npm包@zengwenliang0416/mcp-server-sequential-thinking"
 git push
 ```
 

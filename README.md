@@ -69,7 +69,7 @@ Add this to your `claude_desktop_config.json`:
       "command": "npx",
       "args": [
         "-y",
-        "@dreamboatcmcp/sequential-thinking"
+        "@zengwenliang0416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -89,7 +89,7 @@ Add this to your `claude_desktop_config.json`:
         "run",
         "--rm",
         "-i",
-        "dreamboatcmcp/sequential-thinking"
+        "zengwenliang0416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -105,10 +105,10 @@ Add this to your `claude_desktop_config.json`:
 1. Install the package:
 ```bash
 # Install globally
-npm install -g @dreamboatcmcp/sequential-thinking
+npm install -g @zengwenliang0416/mcp-server-sequential-thinking
 
 # Or use NPX directly
-npx -y @dreamboatcmcp/sequential-thinking
+npx -y @zengwenliang0416/mcp-server-sequential-thinking
 ```
 
 2. Configure in Cursor settings (JSON):
@@ -119,7 +119,7 @@ npx -y @dreamboatcmcp/sequential-thinking
       "command": "npx",
       "args": [
         "-y",
-        "@dreamboatcmcp/sequential-thinking"
+        "@zengwenliang0416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -157,7 +157,7 @@ npm run build
 
 1. Build Docker image:
 ```bash
-docker build -t dreamboatcmcp/sequential-thinking .
+docker build -t zengwenliang0416/mcp-server-sequential-thinking .
 ```
 
 2. Configure in Cursor settings (JSON):
@@ -170,7 +170,7 @@ docker build -t dreamboatcmcp/sequential-thinking .
         "run",
         "--rm",
         "-i",
-        "dreamboatcmcp/sequential-thinking"
+        "zengwenliang0416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -227,7 +227,7 @@ npm run build
 
 ```bash
 # Build the Docker image
-docker build -t dreamboatcmcp/sequential-thinking .
+docker build -t zengwenliang0416/mcp-server-sequential-thinking .
 
 # Verify the build
 docker images | grep sequential-thinking
@@ -242,7 +242,7 @@ This section explains how to publish the package to npm registry.
 
 1. **Node.js and npm**: Ensure you have Node.js and npm installed
 2. **npm Account**: You need an npm account to publish packages
-3. **Organization**: For scoped packages (e.g., `@dreamboatcmcp/sequential-thinking`), you need to be a member of the organization
+3. **Organization**: For scoped packages (e.g., `@zengwenliang0416/mcp-server-sequential-thinking`), you need to be a member of the organization
 
 ### Step 1: Update Package Information
 
@@ -250,7 +250,7 @@ Ensure your `package.json` has the correct information:
 
 ```json
 {
-  "name": "@dreamboatcmcp/sequential-thinking",
+  "name": "@zengwenliang0416/mcp-server-sequential-thinking",
   "version": "0.6.2",
   "description": "MCP server for sequential thinking and problem solving",
   // other fields...
@@ -304,14 +304,14 @@ npm publish
 ### Step 7: Verify the Publication
 
 ```bash
-npm view @dreamboatcmcp/sequential-thinking
+npm view @zengwenliang0416/mcp-server-sequential-thinking
 ```
 
 ### Step 8: Commit Your Changes
 
 ```bash
 git add .
-git commit -m "feat(publish): 🚀 发布npm包@dreamboatcmcp/sequential-thinking"
+git commit -m "feat(publish): 🚀 发布npm包@zengwenliang0416/mcp-server-sequential-thinking"
 git push
 ```
 
