@@ -69,7 +69,7 @@ Add this to your `claude_desktop_config.json`:
       "command": "npx",
       "args": [
         "-y",
-        "@modelcontextprotocol/server-sequential-thinking"
+        "@dreamboatcmcp/sequential-thinking"
       ]
     }
   }
@@ -83,13 +83,13 @@ Add this to your `claude_desktop_config.json`:
 ```json
 {
   "mcpServers": {
-    "sequentialthinking": {
+    "sequential-thinking": {
       "command": "docker",
       "args": [
         "run",
         "--rm",
         "-i",
-        "mcp/sequentialthinking"
+        "dreamboatcmcp/sequential-thinking"
       ]
     }
   }
@@ -100,11 +100,39 @@ Add this to your `claude_desktop_config.json`:
 ### Usage with Cursor IDE
 
 <details>
+<summary>📦 NPX Method (Recommended)</summary>
+
+1. Install the package:
+```bash
+# Install globally
+npm install -g @dreamboatcmcp/sequential-thinking
+
+# Or use NPX directly
+npx -y @dreamboatcmcp/sequential-thinking
+```
+
+2. Configure in Cursor settings (JSON):
+```json
+{
+  "mcpServers": {
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@dreamboatcmcp/sequential-thinking"
+      ]
+    }
+  }
+}
+```
+</details>
+
+<details>
 <summary>💻 Local Build Method</summary>
 
 1. Build the project locally first:
 ```bash
-cd /path/to/sequentialthinking
+cd /path/to/sequential-thinking
 npm install
 npm run build
 ```
@@ -113,10 +141,10 @@ npm run build
 ```json
 {
   "mcpServers": {
-    "sequentialthinking": {
+    "sequential-thinking": {
       "command": "node",
       "args": [
-        "/absolute/path/to/sequentialthinking/dist/index.js"
+        "/absolute/path/to/sequential-thinking/dist/index.js"
       ]
     }
   }
@@ -129,20 +157,20 @@ npm run build
 
 1. Build Docker image:
 ```bash
-docker build -t mcp/sequentialthinking -f src/sequentialthinking/Dockerfile .
+docker build -t dreamboatcmcp/sequential-thinking .
 ```
 
 2. Configure in Cursor settings (JSON):
 ```json
 {
   "mcpServers": {
-    "sequentialthinking": {
+    "sequential-thinking": {
       "command": "docker",
       "args": [
         "run",
         "--rm",
         "-i",
-        "mcp/sequentialthinking"
+        "dreamboatcmcp/sequential-thinking"
       ]
     }
   }
@@ -164,10 +192,10 @@ open -a Cursor
 ```json
 {
   "mcpServers": {
-    "sequentialthinking": {
+    "sequential-thinking": {
       "command": "node",
       "args": [
-        "/absolute/path/to/sequentialthinking/dist/index.js"
+        "/absolute/path/to/sequential-thinking/dist/index.js"
       ]
     }
   }
@@ -188,7 +216,7 @@ chmod +x start_cursor_with_mcp.sh
 <summary>Local Build</summary>
 
 ```bash
-cd /path/to/sequentialthinking
+cd /path/to/sequential-thinking
 npm install
 npm run build
 ```
@@ -199,12 +227,115 @@ npm run build
 
 ```bash
 # Build the Docker image
-docker build -t mcp/sequentialthinking .
+docker build -t dreamboatcmcp/sequential-thinking .
 
 # Verify the build
-docker images | grep sequentialthinking
+docker images | grep sequential-thinking
 ```
 </details>
+
+## 📦 Publishing
+
+This section explains how to publish the package to npm registry.
+
+### Prerequisites
+
+1. **Node.js and npm**: Ensure you have Node.js and npm installed
+2. **npm Account**: You need an npm account to publish packages
+3. **Organization**: For scoped packages (e.g., `@dreamboatcmcp/sequential-thinking`), you need to be a member of the organization
+
+### Step 1: Update Package Information
+
+Ensure your `package.json` has the correct information:
+
+```json
+{
+  "name": "@dreamboatcmcp/sequential-thinking",
+  "version": "0.6.2",
+  "description": "MCP server for sequential thinking and problem solving",
+  // other fields...
+}
+```
+
+### Step 2: Switch to Official npm Registry
+
+If you're using a mirror registry (like npmmirror.com), switch to the official npm registry:
+
+```bash
+npm config set registry https://registry.npmjs.org/
+```
+
+### Step 3: Login to npm
+
+```bash
+npm login
+```
+
+Follow the prompts to log in through your browser.
+
+### Step 4: Create or Join the Organization
+
+For scoped packages, you need to be part of the organization:
+
+```bash
+# Check if you're part of the organization
+npm org ls your-org-name
+
+# If not, create a new organization through the npm website
+# or ask the organization admin to add you
+```
+
+### Step 5: Build the Package
+
+```bash
+npm run build
+```
+
+### Step 6: Publish the Package
+
+```bash
+# For first-time publishing a scoped package
+npm publish --access public
+
+# For subsequent updates
+npm publish
+```
+
+### Step 7: Verify the Publication
+
+```bash
+npm view @dreamboatcmcp/sequential-thinking
+```
+
+### Step 8: Commit Your Changes
+
+```bash
+git add .
+git commit -m "feat(publish): 🚀 发布npm包@dreamboatcmcp/sequential-thinking"
+git push
+```
+
+### Updating the Package
+
+To update the package:
+
+1. Make your changes to the code
+2. Update the version in `package.json` following [semantic versioning](https://semver.org/)
+   ```bash
+   # For patch updates (bug fixes)
+   npm version patch
+   
+   # For minor updates (new features, backward compatible)
+   npm version minor
+   
+   # For major updates (breaking changes)
+   npm version major
+   ```
+3. Build and publish again
+   ```bash
+   npm run build
+   npm publish
+   ```
 
 ## ❗ Troubleshooting
 

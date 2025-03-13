@@ -69,7 +69,7 @@
       "command": "npx",
       "args": [
         "-y",
-        "@modelcontextprotocol/server-sequential-thinking"
+        "@dreamboatcmcp/sequential-thinking"
       ]
     }
   }
@@ -83,13 +83,13 @@
 ```json
 {
   "mcpServers": {
-    "sequentialthinking": {
+    "sequential-thinking": {
       "command": "docker",
       "args": [
         "run",
         "--rm",
         "-i",
-        "mcp/sequentialthinking"
+        "dreamboatcmcp/sequential-thinking"
       ]
     }
   }
@@ -100,11 +100,39 @@
 ### 与 Cursor IDE 一起使用
 
 <details>
+<summary>📦 NPX 方法（推荐）</summary>
+
+1. 安装包：
+```bash
+# 全局安装
+npm install -g @dreamboatcmcp/sequential-thinking
+
+# 或直接使用 NPX
+npx -y @dreamboatcmcp/sequential-thinking
+```
+
+2. 在 Cursor 设置中配置（JSON）：
+```json
+{
+  "mcpServers": {
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@dreamboatcmcp/sequential-thinking"
+      ]
+    }
+  }
+}
+```
+</details>
+
+<details>
 <summary>💻 本地构建方法</summary>
 
 1. 首先在本地构建项目：
 ```bash
-cd /path/to/sequentialthinking
+cd /path/to/sequential-thinking
 npm install
 npm run build
 ```
@@ -113,10 +141,10 @@ npm run build
 ```json
 {
   "mcpServers": {
-    "sequentialthinking": {
+    "sequential-thinking": {
       "command": "node",
       "args": [
-        "/absolute/path/to/sequentialthinking/dist/index.js"
+        "/absolute/path/to/sequential-thinking/dist/index.js"
       ]
     }
   }
@@ -129,20 +157,20 @@ npm run build
 
 1. 构建 Docker 镜像：
 ```bash
-docker build -t mcp/sequentialthinking -f src/sequentialthinking/Dockerfile .
+docker build -t dreamboatcmcp/sequential-thinking .
 ```
 
 2. 在 Cursor 设置中配置（JSON）：
 ```json
 {
   "mcpServers": {
-    "sequentialthinking": {
+    "sequential-thinking": {
       "command": "docker",
       "args": [
         "run",
         "--rm",
         "-i",
-        "mcp/sequentialthinking"
+        "dreamboatcmcp/sequential-thinking"
       ]
     }
   }
@@ -164,10 +192,10 @@ open -a Cursor
 ```json
 {
   "mcpServers": {
-    "sequentialthinking": {
+    "sequential-thinking": {
       "command": "node",
       "args": [
-        "/absolute/path/to/sequentialthinking/dist/index.js"
+        "/absolute/path/to/sequential-thinking/dist/index.js"
       ]
     }
   }
@@ -188,7 +216,7 @@ chmod +x start_cursor_with_mcp.sh
 <summary>本地构建</summary>
 
 ```bash
-cd /path/to/sequentialthinking
+cd /path/to/sequential-thinking
 npm install
 npm run build
 ```
@@ -199,12 +227,115 @@ npm run build
 
 ```bash
 # 构建 Docker 镜像
-docker build -t mcp/sequentialthinking .
+docker build -t dreamboatcmcp/sequential-thinking .
 
 # 验证构建结果
-docker images | grep sequentialthinking
+docker images | grep sequential-thinking
 ```
 </details>
+
+## 📦 发布
+
+本节说明如何将包发布到 npm 注册表。
+
+### 前提条件
+
+1. **Node.js 和 npm**：确保已安装 Node.js 和 npm
+2. **npm 账号**：您需要一个 npm 账号才能发布包
+3. **组织**：对于作用域包（例如 `@dreamboatcmcp/sequential-thinking`），您需要是该组织的成员
+
+### 步骤 1：更新包信息
+
+确保您的 `package.json` 包含正确的信息：
+
+```json
+{
+  "name": "@dreamboatcmcp/sequential-thinking",
+  "version": "0.6.2",
+  "description": "MCP server for sequential thinking and problem solving",
+  // 其他字段...
+}
+```
+
+### 步骤 2：切换到官方 npm 注册表
+
+如果您使用的是镜像注册表（如 npmmirror.com），请切换到官方 npm 注册表：
+
+```bash
+npm config set registry https://registry.npmjs.org/
+```
+
+### 步骤 3：登录到 npm
+
+```bash
+npm login
+```
+
+按照提示通过浏览器登录。
+
+### 步骤 4：创建或加入组织
+
+对于作用域包，您需要是组织的一部分：
+
+```bash
+# 检查您是否是组织的成员
+npm org ls 您的组织名称
+
+# 如果不是，可以通过 npm 网站创建新组织
+# 或请组织管理员将您添加进来
+```
+
+### 步骤 5：构建包
+
+```bash
+npm run build
+```
+
+### 步骤 6：发布包
+
+```bash
+# 首次发布作用域包
+npm publish --access public
+
+# 后续更新
+npm publish
+```
+
+### 步骤 7：验证发布
+
+```bash
+npm view @dreamboatcmcp/sequential-thinking
+```
+
+### 步骤 8：提交您的更改
+
+```bash
+git add .
+git commit -m "feat(publish): 🚀 发布npm包@dreamboatcmcp/sequential-thinking"
+git push
+```
+
+### 更新包
+
+要更新包：
+
+1. 对代码进行更改
+2. 按照[语义化版本](https://semver.org/)更新 `package.json` 中的版本
+   ```bash
+   # 补丁更新（错误修复）
+   npm version patch
+   
+   # 次要更新（新功能，向后兼容）
+   npm version minor
+   
+   # 主要更新（破坏性变更）
+   npm version major
+   ```
+3. 再次构建和发布
+   ```bash
+   npm run build
+   npm publish
+   ```
 
 ## ❗ 故障排除
 
