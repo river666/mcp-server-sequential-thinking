@@ -87,7 +87,7 @@ The Sequential Thinking tool is ideal for:
         "run",
         "--rm",
         "-i",
-        "zengwenliang/mcp-server-sequential-thinking"
+        "zengwenliang416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -156,7 +156,7 @@ npm run build
 1. Build Docker image:
 ```bash
 # Build Docker image
-docker build -t zengwenliang/mcp-server-sequential-thinking .
+docker build -t zengwenliang416/mcp-server-sequential-thinking .
 ```
 
 2. Configure in Cursor settings (JSON):
@@ -169,7 +169,7 @@ docker build -t zengwenliang/mcp-server-sequential-thinking .
         "run",
         "--rm",
         "-i",
-        "zengwenliang/mcp-server-sequential-thinking"
+        "zengwenliang416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -228,14 +228,14 @@ npm run build
 ```bash
 git clone https://github.com/zengwenliang416/mcp-server-sequential-thinking.git
 cd mcp-server-sequential-thinking
-docker build -t zengwenliang/mcp-server-sequential-thinking .
+docker build -t zengwenliang416/mcp-server-sequential-thinking .
 
 # Verify the build
 docker images | grep sequential-thinking
 ```
 </details>
 
-## 📦 Publishing Guide
+## �� Publishing Guide
 
 <details>
 <summary><b>Publishing to npm</b></summary>

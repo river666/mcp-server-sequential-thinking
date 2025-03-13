@@ -87,7 +87,7 @@
         "run",
         "--rm",
         "-i",
-        "zengwenliang/mcp-server-sequential-thinking"
+        "zengwenliang416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -156,7 +156,7 @@ npm run build
 1. 构建 Docker 镜像：
 ```bash
 # 构建 Docker 镜像
-docker build -t zengwenliang/mcp-server-sequential-thinking .
+docker build -t zengwenliang416/mcp-server-sequential-thinking .
 ```
 
 2. 在 Cursor 设置中配置（JSON）：
@@ -169,7 +169,7 @@ docker build -t zengwenliang/mcp-server-sequential-thinking .
         "run",
         "--rm",
         "-i",
-        "zengwenliang/mcp-server-sequential-thinking"
+        "zengwenliang416/mcp-server-sequential-thinking"
       ]
     }
   }
@@ -228,7 +228,7 @@ npm run build
 ```bash
 git clone https://github.com/zengwenliang416/mcp-server-sequential-thinking.git
 cd mcp-server-sequential-thinking
-docker build -t zengwenliang/mcp-server-sequential-thinking .
+docker build -t zengwenliang416/mcp-server-sequential-thinking .
 
 # 验证构建结果
 docker images | grep sequential-thinking
